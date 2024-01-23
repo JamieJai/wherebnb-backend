@@ -54,9 +54,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             String newAccessToken = jwtTokenProvider.generateAccessTokenFromRefreshToken(refreshToken);
             response.setHeader("NewAccessToken", "Bearer " + newAccessToken); // 새 토큰을 헤더에 추가
             response.setHeader("expTime", "3600");
-
         }
-
         chain.doFilter(request, response);
     }
 

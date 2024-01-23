@@ -6,7 +6,6 @@ import goorm.wherebnb.domain.dto.request.BookingRequest;
 import goorm.wherebnb.domain.dto.request.PaymentRequest;
 import goorm.wherebnb.repository.PropertyRepository;
 import goorm.wherebnb.service.BookingService;
-//import goorm.wherebnb.service.PropertyService;
 import goorm.wherebnb.service.PropertyService;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
@@ -39,7 +38,6 @@ public class InitDb {
         private final PropertyService propertyService;
         private final PropertyRepository propertyRepository;
         private final BookingService bookingService;
-        private  final PropertyRepository propertyRepository;
         private final BCryptPasswordEncoder passwordEncoder;
 
         public void dbInit() throws IOException {

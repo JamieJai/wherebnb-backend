@@ -1,6 +1,5 @@
 package goorm.wherebnb.domain.dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import goorm.wherebnb.config.auth.user.oauth2.OAuth2UserInfo;
 import goorm.wherebnb.domain.BaseTimeEntity;
 import jakarta.persistence.*;
@@ -8,12 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Getter

@@ -82,8 +82,8 @@ public class SecurityConfig {
                                 new AntPathRequestMatcher("/wishlists/**"),
                                 new AntPathRequestMatcher("/hosting/**"),
                                 new AntPathRequestMatcher("/host/**"),
-                                new AntPathRequestMatcher("/calender-router/**"),
-                                new AntPathRequestMatcher("/users/**")
+                                new AntPathRequestMatcher("/calender-router/**")
+//                                new AntPathRequestMatcher("/users/**")
                         ).hasRole("USER")
                         .anyRequest().permitAll());
 
@@ -110,7 +110,7 @@ public class SecurityConfig {
             userEmail = customUserDetails.getUsername();
         }
         User user = customUserDetailsService.selcetUser(userEmail);
-        user.setRefreshToken(refresh);
+        user.setRefreshToken("Bearer " + refresh);
         userRepository.save(user);
         userRepository.save(user);
         UserDto userDto = new UserDto();

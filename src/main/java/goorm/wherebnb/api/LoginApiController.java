@@ -1,16 +1,18 @@
 package goorm.wherebnb.api;
 
+import goorm.wherebnb.config.auth.dto.request.SignUpRequestDto;
 import goorm.wherebnb.domain.dao.User;
 import goorm.wherebnb.repository.UserRepository;
+import goorm.wherebnb.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 public class LoginApiController {
     private final UserRepository userRepository;
+    private final UserService userService;
 
     @GetMapping("/")
     public String start() {
@@ -31,8 +33,14 @@ public class LoginApiController {
     }
 
     @GetMapping("/auth/refresh")
-    public String abc() {
-        return "abcd";
+    public String refreshToken() {
+        return "리프레시 토큰 발급용 URL API End-point";
+    }
+
+    @PostMapping("/users")
+    public ResponseEntity<?> signup(@RequestBody SignUpRequestDto signUpRequestDto) {
+        userService.saveUser(signUpRequestDto);
+        return ResponseEntity.ok().build();
     }
 }
 // 이상하게 보이지만 꼭 필요한 api입니다 지우지 말아주세요 ㅜㅜ
